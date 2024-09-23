@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+/.quarto/
+presentationZeppelin.Rproj
+presentationZeppelin.html
+/presentationZeppelin_files/

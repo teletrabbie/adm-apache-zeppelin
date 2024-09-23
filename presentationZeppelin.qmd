@@ -1,0 +1,240 @@
+---
+title: "Apache Zeppelin"
+subtitle: "Datenbasierte und interaktive Analysen mit SQL und weiteren Programmiersprachen"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: false
+    logo: src/bfh.svg
+    css: src/styles.css
+    footer: Advanced Data Management 2024/25 | Christian Franke
+title-slide-attributes:
+  data-background-image: src/zepLogo.png
+  data-background-opacity: "0.35"
+  data-background-size: 50%
+---
+
+## Agenda
+
+1. Ziel und Nutzen von Apache Zeppelin
+1. Interpreter und Zeppelin-Context
+1. Unterschied zu Jupyter
+1. Demo
+
+::: {.fragment .fade-up}
+Diese Präsentation wurde mit [Quarto / RStudio als Reveal.js Dokument](https://quarto.org/docs/presentations/){target="_blank"} erstellt.
+
+```default
+git clone 
+```
+:::
+
+::: footer
+Advanced Data Management 2024/25 | Christian Franke
+:::
+
+
+## Ziele und Nutzen von Apache Zeppelin
+
+["Web-based notebook that enables data-driven, interactive data analytics and collaborative documents with SQL, Scala, Python, R and more."](https://zeppelin.apache.org){target="_blank"}
+
+::: incremental
+* Webbasiert
+* Daten (Import, Bearbeitung, Analyse, Darstellung etc.)
+* Interaktiv
+* Kollaboration und Versionierung
+* Unterschiedliche (Programmier-) Sprachen
+:::
+
+::: footer
+Advanced Data Management 2024/25 | Christian Franke
+:::
+
+
+## Interpreter und Zeppelin-Context
+
+Unterstützte Interpreter (Version 0.8.1)
+
+::: columns
+::: {.column width="33%"}
+* Alluxio
+* Anular
+* Beam
+* BigQuery
+* Cassandra
+* Elasticsearch
+* Flink
+* Geode
+:::
+
+::: {.column width="34%"}
+* Hbase
+* HDFS
+* Ignite
+* JDBC
+* Kylin
+* Lens
+* Livy
+* Markdown
+:::
+
+::: {.column width="33%"}
+* Pig
+* PostgreSQL
+* Python
+* Scalding
+* Scio
+* Shell
+* Spark
+:::
+:::
+
+::: footer
+Advanced Data Management 2024/25 | Christian Franke
+:::
+
+
+## Interpreter und Zeppelin-Context
+
+Interne Hierarchie
+
+::: incremental
+* Interpreter Process enthtält 
+* 1:n Interpreter Groups und diese enthalten
+* 1:n Interpreter Instanzen.
+:::
+
+::: {.fragment}
+[![Interpreter Process, Group und Instanz](/src/interpreter.webp)](https://medium.com/@leemoonsoo/apache-zeppelin-interpreter-mode-explained-bae0525d0555){target="_blank"}
+::: 
+
+::: footer
+Advanced Data Management 2024/25 | Christian Franke
+:::
+
+
+## Interpreter und Zeppelin-Context
+
+Modes für Interpreternutzung durch Notebooks
+
+::: columns
+::: {.fragment .column width="33%"}
+**Shared**: Alle Notebooks nutzen ein und denselben Interpreter Process und Interpreter Group
+:::
+
+::: {.fragment .column width="34%"}
+**Scoped**: Alle Notebooks nutzen ein und denselben Interpreter Process, aber unterschiedliche Interpreter Groups
+:::
+
+::: {.fragment .column width="33%"}
+**Isolated**: Jedes Notebook nutzt eigenen Interpreter Process und eigene Interpreter Groups
+:::
+:::
+
+::: footer
+Advanced Data Management 2024/25 | Christian Franke
+:::
+
+
+## Interpreter und Zeppelin-Context
+
+Folgen für die Variablen je Mode
+
+::: columns
+::: {.fragment .column width="33%"}
+**Shared**: Variablen können durch unterschiedliche Notebooks verändert/überschrieben werden.
+:::
+
+::: {.fragment .column width="34%"}
+**Scoped**: Notebooks können nicht mehr auf Variablen anderer Notebooks zugreigen, aber die Notebooks teilen sich die vorhandenen Ressourcen.
+:::
+
+::: {.fragment .column width="33%"}
+**Isolated**: Alle Notebooks, deren Variablen und Ressourcennutzung sind unabhängig voneinander.
+:::
+:::
+
+::: footer
+Advanced Data Management 2024/25 | Christian Franke
+:::
+
+
+## Interpreter und Zeppelin-Context
+
+Zeppelin-Context
+
+* systemweiter Container für typische Funktionen
+* gilt für einen User und dessen Daten
+* ermöglicht Datenaustausch zwischen Zellen und Notebooks
+* wird durch viele Interpreter mit `z` angesprochen
+* hilft z.B. bei Anzeige oder übergreifenden Nutzung von Daten sowie Tabellen oder bei Formularerstellung
+
+::: footer
+Advanced Data Management 2024/25 | Christian Franke
+:::
+
+
+## Unterschied zu Jupyter
+
+* Zeppelin im Netzwerk verfügbar und nicht nur lokal
+* Zeppelin mit vielen Interpretern
+* Zeppelin mit iframe-Integration
+* Zeppelin mit umfangreichen Sicherheitseinstellungen
+* Zeppelin weniger nutzerfreundlich, weil weniger Autocomplete oder Tastenkombinationen
+* Zeppelin umständlicher bei Publikation der Notebooks
+* Zeppelin eher für Unternehmen statt für Einzelpersonen geeignet
+
+::: footer
+Advanced Data Management 2024/25 | Christian Franke
+:::
+
+
+## Demo
+
+Seit 04. September 2024 gibt es Version 0.11.2
+
+<br>
+
+```default
+docker run -p 8080:8080 --rm --name zeppelin apache/zeppelin:0.11.2
+```
+
+<br>
+
+![](/src/dockerSize.png)
+
+::: footer
+Advanced Data Management 2024/25 | Christian Franke
+:::
+
+
+## Literatur
+
+1. [Offizielle Website](https://zeppelin.apache.org){target="_blank"}
+
+1. [Apache Zeppelin, Interpreter mode explained](https://medium.com/@leemoonsoo/apache-zeppelin-interpreter-mode-explained-bae0525d0555){target="_blank"}
+
+1. [Introducing Apache Zeppelin (PDF)](https://indico.cern.ch/event/449076/contributions/1956693/attachments/1165693/1680444/introducingApacheZeppelin.pdf){target="_blank"}
+
+1. [Zeppelin-Context](https://zeppelin.apache.org/docs/latest/usage/other_features/zeppelin_context.html){target="_blank"}
+
+1. [Webbasierte Datenanalysen mit Apache Zeppelin](https://entwickler.de/datenbanken/apache-zeppelin-datenanalyse){target="_blank"}
+
+1. [Wie nutzen wir Apache Zeppelin für Big Data?](https://www.micromata.de/blog/apache-zeppelin-big-data/){target="_blank"}
+
+1. [Quarto Presentations](https://quarto.org/docs/presentations/){target="_blank"}
+
+::: footer
+Advanced Data Management 2024/25 | Christian Franke
+:::
+
+
+## Hinauf in den Datenhimmel!
+
+[![Zeppelin Logo](/src/zepLogo.png)](https://zeppelin.apache.org){target="_blank"}
+
+::: footer
+Advanced Data Management 2024/25 | Christian Franke
+:::
