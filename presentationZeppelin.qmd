@@ -27,7 +27,7 @@ title-slide-attributes:
 Diese Präsentation wurde mit [Quarto / RStudio als Reveal.js Dokument](https://quarto.org/docs/presentations/){target="_blank"} erstellt.
 
 ```default
-git clone 
+git clone https://github.com/teletrabbie/adm-apache-zeppelin.git
 ```
 :::
 
