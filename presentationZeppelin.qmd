@@ -55,12 +55,12 @@ Advanced Data Management 2024/25 | Christian Franke
 
 ## Interpreter und Zeppelin-Context
 
-Unterstützte Interpreter (Version 0.8.1)
+Unterstützte Interpreter
 
 ::: columns
 ::: {.column width="33%"}
 * Alluxio
-* Anular
+* Angular
 * Beam
 * BigQuery
 * Cassandra
@@ -178,6 +178,7 @@ Advanced Data Management 2024/25 | Christian Franke
 
 ## Unterschied zu Jupyter
 
+::: {.fragment}
 * Zeppelin im Netzwerk verfügbar und nicht nur lokal
 * Zeppelin mit vielen Interpretern
 * Zeppelin mit iframe-Integration
@@ -185,6 +186,7 @@ Advanced Data Management 2024/25 | Christian Franke
 * Zeppelin weniger nutzerfreundlich, weil weniger Autocomplete oder Tastenkombinationen
 * Zeppelin umständlicher bei Publikation der Notebooks
 * Zeppelin eher für Unternehmen statt für Einzelpersonen geeignet
+:::
 
 ::: footer
 Advanced Data Management 2024/25 | Christian Franke
